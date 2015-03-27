@@ -39,6 +39,7 @@ var app = app || {};
 			this.listenTo(app.todos, 'change:completed', this.filterOne);
 			this.listenTo(app.todos, 'filter', this.filterAll);
 			this.listenTo(app.todos, 'all', this.render);
+			//this.listenTo(app.todos, 'change:completed', this.addText);
 
 			// Suppresses 'add' events with {reset: true} and prevents the app view
 			// from being re-rendered for every model. Only renders when the 'reset'
@@ -94,12 +95,27 @@ var app = app || {};
 			app.todos.each(this.filterOne, this);
 		},
 
+		/*
+		addText: function(todo){
+		    if(todo.attributes.completed){
+		        var text = todo.attributes.title
+		        todo.attributes.title = text + "//done";
+		    }
+		    else{
+		        var text =  todo.attributes.title;
+		        text = text.replace("//done","", 'g');
+		        todo.attributes.title = text;
+		    }
+		},
+		*/
+
 		// Generate the attributes for a new Todo item.
 		newAttributes: function () {
 			return {
 				title: this.$input.val().trim(),
 				order: app.todos.nextOrder(),
-				completed: false
+				completed: false,
+				priority: false
 			};
 		},
 

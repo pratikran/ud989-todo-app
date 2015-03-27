@@ -279,7 +279,7 @@ label[for='toggle-all'] {
 
 #todo-list li.completed label {
 	color: #a9a9a9;
-	text-decoration: line-through;
+	/*text-decoration: line-through;*/ /* Changed by pratik ranjan 20150327 IST India*/
 }
 
 #todo-list li.priority:not(.completed) label {
